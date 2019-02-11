@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="600.0" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="Pane-Main-GUI" stylesheets="@../../../../resources/icons/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Minesweeper.client.jgui.Register">
+   <children>
+      <Pane layoutX="209.0" layoutY="98.0" prefHeight="435.0" prefWidth="367.0" styleClass="login-register-Pane">
+         <children>
+            <Text fill="WHITE" layoutX="116.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register" />
+            <TextField id="userNameTextField" fx:id="userNameTextField" layoutX="67.0" layoutY="146.0" prefHeight="49.0" prefWidth="238.0" promptText="USERNAME" stylesheets="@style.css" />
+            <PasswordField id="passwordTextField" fx:id="passwordTextField" layoutX="65.0" layoutY="250.0" prefHeight="45.0" prefWidth="238.0" promptText="PASSWORD" styleClass="passwordLoginTextField" stylesheets="@style.css">
+               <font>
+                  <Font name="Karla" size="18.0" />
+               </font></PasswordField>
+            <Button id="buttonSubmit" layoutX="65.0" layoutY="342.0" mnemonicParsing="false" onMouseClicked="#onClickSubmitRegisterButton" prefHeight="45.0" prefWidth="238.0" stylesheets="@style.css" text="Register" />
+         </children>
+      </Pane>
+      <Text id="title-top-right" layoutX="671.0" layoutY="52.0" onMouseClicked="#onClickGoBackButton" strokeType="OUTSIDE" strokeWidth="0.0" text="Go Back" />
+   </children>
+</Pane>

@@ -1,0 +1,282 @@
+@font-face {
+  font-family:"Bebas";
+  src: url("fonts/bebas.ttf") format("truetype");
+}
+@font-face {
+  font-family:"Archivo Narrow";
+  src: url("fonts/ArchivoNarrow-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family:"Karla";
+  src: url("fonts/Karla-Bold.ttf") format("truetype");
+}
+.Pane-Main-GUI{
+    -fx-background-image: url('gui-background.png');
+}
+
+#scores-title{
+    -fx-font-size: 60px;
+    -fx-font-family: 'Bebas';
+    -fx-fill: white;
+}
+
+
+.title-Main-GUI{
+    -fx-font-size: 60px;
+    -fx-font-family: 'Bebas';
+    -fx-text-fill: white;
+}
+.button-login-Main-GUI:hover {
+    -fx-background-color: #464141;
+    -fx-cursor: hand;
+}
+.button-login-Main-GUI{
+    -fx-background-color: #342e2e;
+    -fx-max-height: 66px;
+    -fx-max-width: 235px;
+    -fx-font-size: 30px;
+    -fx-font-family: 'Bebas';
+    -fx-text-fill: white;
+}
+
+.login-register-Pane{
+    -fx-background-color: rgba(63, 60, 60, 0.7); 
+    -fx-background-radius: 30px;
+    -fx-font-size: 36px;
+    -fx-font-family: 'Bebas';
+    -fx-text-fill: white;
+}
+
+#userNameTextField{
+    -fx-border-color :none; 
+    -fx-background-color: rgba(90, 89, 89, 0.7); 
+    -fx-background-radius: 28px;
+    -fx-font-size: 16px;
+    -fx-prompt-text-fill: #848080;
+    -fx-border-radius: 28px;
+    -fx-font-family: 'Karla';
+    -fx-font-weight:Bold;
+}
+
+#passwordTextField{
+    -fx-border-color :none;
+    -fx-background-color: rgba(90, 89, 89, 0.7); 
+    -fx-border-radius: 28px;
+    -fx-background-radius:28px;
+    -fx-font-size: 16px;
+    -fx-prompt-text-fill: #848080;
+    -fx-font-family: 'Karla';
+    -fx-font-weight:Bold;
+}
+
+#buttonSubmit{
+    -fx-background-color: rgba(187, 187, 187, 0.7); 
+    -fx-border-radius: 28px;
+    -fx-background-radius:28px;
+    -fx-font-size: 18px;
+}
+
+#buttonSubmit:hover {
+    -fx-background-color:rgba(103, 103, 103, 0.7); 
+    -fx-cursor: hand;
+}
+
+.icon{
+    -fx-text-fill: #6a6868;   
+}
+
+.icon:hover{
+    -fx-text-fill: #807f7f;
+    -fx-cursor: hand;
+}
+
+#lobby-title-box{
+    -fx-background-color: #373535;
+}
+
+#lobby-title{
+    -fx-font-family: 'Bebas';
+    -fx-text-fill: white;
+    -fx-font-size: 34px;
+}
+
+#title-top-right{
+    -fx-font-family: 'Archivo Narrow';
+    -fx-font-size: 27px;
+    -fx-fill:#9c9797;
+}
+
+#title-top-right:hover{
+    -fx-cursor: hand;
+    -fx-fill:#6a6868;
+}
+
+.container-pane-lobby{
+    -fx-background-color:rgba(94, 86, 52, 0.83); 
+    -fx-background-radius: 20px;
+}
+
+
+.container-pane-lobby-subtitle{
+    -fx-fill:#bbb1b1;
+    -fx-font-size:30px;
+    -fx-font-family: 'Archivo Narrow';
+}
+
+
+.table-view{
+    -fx-base: #2A2A2A;
+    -fx-control-inner-background: #2A2A2A;
+    -fx-table-cell-border-color: transparent;
+    -fx-padding: 1;
+    -fx-selection-bar-non-focused: #008287 ;   
+    -fx-background-color:rgba(0,0,0, 0.7);
+}
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-effect:null;
+}
+.table-view:onclick{
+    -fx-effect:null;
+}
+.table-view .column-header-background{
+    -fx-background-color: #1d1d1d;
+    -fx-background-insets: 0;}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color:#171616;
+    -fx-size: 25;
+    -fx-text-fill: #d8d8d8;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 17px;
+    -fx-font-family: 'Archivo Narrow';
+    -fx-alignment: center;
+    -fx-opacity: 1;
+    -fx-text-alignment: center;
+    -fx-fill:#6a6868;
+    -fx-text-fill: #6a6868;
+    -fx-background-color:#171616;
+    -fx-effect: null;
+    -fx-font-weight:Bold;
+}
+
+.table-cell {
+    -fx-font-size: 14px;
+    -fx-font-family: 'Archivo Narrow';
+    -fx-fill:#000000;
+    -fx-alignment: center;
+    -fx-background-color:#4d4848;
+}
+
+.listView-online-players .list-cell{
+    -fx-background-color:rgba(94, 86, 52, 0.83); 
+    -fx-text-fill:#6a6868;
+    -fx-font-size: 19px;
+    -fx-font-family: 'Archivo Narrow';
+}
+.listView-online-players .list-cell:odd { 
+    -fx-background-color: #171616;
+}
+.listView-online-players .list-cell:even { 
+    -fx-background-color: #1f1e1e;
+}
+.listView-online-players{
+    -fx-background-color:rgba(0,0,0, 0.7); 
+}
+
+#text-field-message{
+    -fx-border-color :none; 
+    -fx-background-color: rgba(62, 62, 62, 0.7); 
+    -fx-font-family: 'Archivo Narrow';
+    -fx-prompt-text-fill: #747474;
+    -fx-text-fill:white;
+    -fx-font-size:16px;
+
+}
+#button-send{
+    -fx-background-color: #5f4f36;
+    -fx-font-family: 'Archivo Narrow';
+    -fx-text-fill:white;
+    -fx-font-size:14px;
+    -fx-effect: null;
+    -fx-background-border:none;
+    -fx-border-radius:0px;
+}
+
+#button-send:hover{
+    -fx-cursor: hand;
+    -fx-background-color: #88785e;
+}
+.create-game-pane-lobby{
+    -fx-background-color:rgba(0,0,0, 0.7);  
+}
+#button-create-game:hover{
+    -fx-cursor: hand;
+    -fx-background-color: #88785e;
+}
+#button-create-game{
+    -fx-background-radius:5px;
+    -fx-background-color: #5f4f36;
+    -fx-font-family: 'Archivo Narrow';
+    -fx-text-fill:white;
+    -fx-font-size:14px;
+}
+.text-field-lobby{
+    -fx-border-color :none; 
+    -fx-background-color: rgba(95, 79, 54, 0.7); 
+    -fx-background-radius: 28px;
+    -fx-font-size: 16px;
+    -fx-border-radius: 28px;
+    -fx-text-fill:black;
+    -fx-font-family: 'Archivo Narrow';
+    -fx-background-border:none;
+    -fx-effect: null;
+
+}
+.text-field-lobby:hover,.text-field-lobby:selected,.text-field-lobby:focused{
+    -fx-background-border:none;
+    -fx-effect: null;
+    -fx-border-color :none; 
+}
+#comboBox-Lobby .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-padding: 3 0 2 7;
+    -fx-cell-size: 1.66667em; 
+}
+#comboBox-Lobby{
+    -fx-font-family: 'Archivo Narrow';
+    -fx-font-size: 18px;
+    -fx-fill:black;
+    -fx-border-color: rgba(95, 79, 54, 0.7);
+    -fx-border-size:20px;
+    -fx-background-border:black;
+    -fx-effect:dropshadow(gaussian,rgba(95, 79, 54, 0.7),0,0,0,1);
+}
+
+.title-create-game{
+    -fx-font-family: 'Archivo Narrow';
+    -fx-font-size: 18px;
+    -fx-fill:white;
+}
+.listViewChat .listView{
+    -fx-background-color:rgba(0,0,0, 0.7); 
+    -fx-border:none;
+}
+.listViewChat, .listViewChat .list-cell{
+    -fx-text-fill:#b2a8a8;
+    -fx-background-color:rgba(0,0,0, 0.7); 
+    -fx-font-family: 'Archivo Narrow';
+    -fx-font-size:18px;
+    -fx-font-weight:Bold;
+
+}
+.listViewChat .list-cell:odd,.listViewChat .list-cell:even{
+    -fx-background-color:transparent;
+}
+
+
+.listViewScores{
+    -fx-background-color:rgba(0,0,0, 0.7); 
+}
