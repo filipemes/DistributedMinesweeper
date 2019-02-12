@@ -5,14 +5,16 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-
+/**
+ * 
+ * @author filipe
+ */
 public class Game {
 
     private final StringProperty timestamp;
     private final StringProperty level;
     private final IntegerProperty currentPlayers;
     private final IntegerProperty maxPlayers;
-
 
     public Game(Timestamp timestamp, String level, int currentPlayers, int maxPlayers) {
         this.timestamp = new SimpleStringProperty(timestamp.toString());

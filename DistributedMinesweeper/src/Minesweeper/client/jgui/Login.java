@@ -6,7 +6,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
-
+/**
+ * 
+ * @author filipe
+ */
 public class Login {
 
     @FXML

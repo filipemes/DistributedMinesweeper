@@ -2,8 +2,10 @@ package Minesweeper.server;
 
 import Minesweeper.client.generator.MineFieldGenerator;
 import java.io.Serializable;
-
-
+/**
+ * 
+ * @author filipe
+ */
 public class InitialState implements Serializable{
 
     private MineFieldGenerator mineFieldGenerator;

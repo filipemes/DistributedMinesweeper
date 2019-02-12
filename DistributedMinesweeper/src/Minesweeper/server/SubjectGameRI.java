@@ -4,10 +4,10 @@ import Minesweeper.client.ObserverGameRI;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
-import java.util.TreeMap;
-
-
-
+/**
+ * 
+ * @author filipe
+ */
 public interface SubjectGameRI extends Remote {
 
     public boolean attach(ObserverGameRI o, Player p) throws RemoteException;
@@ -34,5 +34,7 @@ public interface SubjectGameRI extends Remote {
     
     public boolean getIsReady()throws RemoteException;
     
-    public void endGame()throws RemoteException;
+    public void endGame(boolean gameWon)throws RemoteException;
+    
+    public boolean isGameWon()throws RemoteException;
 }

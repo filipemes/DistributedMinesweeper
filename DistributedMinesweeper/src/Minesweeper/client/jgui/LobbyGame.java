@@ -23,7 +23,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
-
+/**
+ * 
+ * @author filipe
+ */
 public class LobbyGame implements Initializable {
 
     @FXML

@@ -1,15 +1,17 @@
 package Minesweeper.server;
 
 import java.io.Serializable;
-import java.util.TreeMap;
-
+/**
+ * 
+ * @author filipe
+ */
 public class DoublyLinkedListPlayers implements Serializable {
 
     private Node firstNode;
     private Node lastNode;
 
     /**
-     * Insert a node at the tail of a linked-list.
+     * Insert a node at the tail of the linked-list.
      *
      * @param e
      */

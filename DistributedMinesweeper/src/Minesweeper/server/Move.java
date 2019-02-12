@@ -2,8 +2,10 @@ package Minesweeper.server;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-
-
+/**
+ * 
+ * @author filipe
+ */
 public class Move implements Serializable,Comparable{
     
     private int row;

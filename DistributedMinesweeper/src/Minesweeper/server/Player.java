@@ -1,7 +1,10 @@
 package Minesweeper.server;
 
 import java.io.Serializable;
-
+/**
+ * 
+ * @author filipe
+ */
 public class Player implements Comparable, Serializable {
 
     private final String username;

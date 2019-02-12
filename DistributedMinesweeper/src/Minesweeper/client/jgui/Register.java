@@ -1,14 +1,15 @@
 package Minesweeper.client.jgui;
 
-import Minesweeper.client.jgui.AlertHelper;
-import Minesweeper.client.jgui.GuiManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Window;
-
+/**
+ * 
+ * @author filipe
+ */
 public class Register {
 
     @FXML

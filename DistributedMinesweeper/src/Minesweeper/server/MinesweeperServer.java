@@ -9,9 +9,8 @@ import java.util.logging.Logger;
 
 /**
  * <p>
- * Title: Projecto SD</p>
+ * Title: Project DS</p>
  * <p>
- * Description: Projecto apoio aulas SD</p>
  * <p>
  * Copyright: Copyright (c) 2017</p>
  * <p>
@@ -30,7 +29,7 @@ public class MinesweeperServer {
     /**
      * Remote interface that will hold reference to the Servant impl
      */
-    private MinesweeperAdminFactoryRI AdminFactoryRI;
+    private MinesweeperFactoryRI factoryRI;
 
 
 
@@ -77,7 +76,7 @@ public class MinesweeperServer {
                 Logger.getLogger(this.getClass().getName()).log(Level.INFO, "going to lookup service @ {0}", serviceUrl);
 
                 //============ Get proxy to calculater service ============
-                this.AdminFactoryRI = (MinesweeperAdminFactoryRI) registry.lookup(serviceUrl);
+                this.factoryRI = (MinesweeperFactoryRI) registry.lookup(serviceUrl);
 
             } else {
                 Logger.getLogger(this.getClass().getName()).log(Level.INFO, "registry not bound (check IPs). :(");
@@ -87,7 +86,7 @@ public class MinesweeperServer {
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
         }
 
-        return AdminFactoryRI;
+        return factoryRI;
     }
 
     void rebindService() throws RemoteException {
@@ -96,14 +95,14 @@ public class MinesweeperServer {
         //Bind service on rmiregistry and wait for calls
         if (registry != null) {
             //============ Create Servant ============
-            this.AdminFactoryRI = (MinesweeperAdminFactoryRI) new MinesweeperFactoryImpl();
+            this.factoryRI = (MinesweeperFactoryRI) new MinesweeperFactoryImpl();
 
             //Get service url (including servicename)
             String serviceUrl = this.contextRMI.getServicesUrl(0);
             Logger.getLogger(this.getClass().getName()).log(Level.INFO, "going to rebind service @ {0}", serviceUrl);
 
             //============ Rebind servant ============
-            registry.rebind(serviceUrl, this.AdminFactoryRI);
+            registry.rebind(serviceUrl, this.factoryRI);
             Logger.getLogger(this.getClass().getName()).log(Level.INFO, "service bound and running. :)");
         } else {
             Logger.getLogger(this.getClass().getName()).log(Level.INFO, "registry not bound (check IPs). :(");

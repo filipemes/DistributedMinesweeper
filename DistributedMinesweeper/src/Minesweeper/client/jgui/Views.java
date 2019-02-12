@@ -1,5 +1,8 @@
 package Minesweeper.client.jgui;
-
+/**
+ * 
+ * @author filipe
+ */
 public enum Views {
     MAIN_MENU {
         @Override
@@ -24,14 +27,6 @@ public enum Views {
         public String getPath() {
             return "Views/LobbyGuiPane.fxml";
         }
-    },
-    SCORES {
-        @Override
-        public String getPath() {
-            return "Views/ScoresGuiPane.fxml";
-        }
-
     };
-
     public abstract String getPath();
 }

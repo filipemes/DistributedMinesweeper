@@ -4,24 +4,27 @@ import Minesweeper.client.jgui.GuiManager;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import Minesweeper.server.MinesweeperClientFactoryRI;
 import Minesweeper.server.LobbySessionRI;
 import Minesweeper.server.Player;
 import javax.swing.SwingUtilities;
-
+import Minesweeper.server.MinesweeperFactoryRI;
+/**
+ * 
+ * @author filipe
+ */
 public class MinesweeperClient {
 
     public static final String absPathToResourceIcons = "/resources/icons"; //Path to Resource Icons
     private ObserverGameRI observerGameRI;
     private ObserverLobbyRI observerLobbyRI;
     private LobbySessionRI lobbySessionRI;
-    private MinesweeperClientFactoryRI MinesweeperClientFactoryRI;
+    private MinesweeperFactoryRI minesweeperFactoryRI;
     private Player player;
     private GuiManager guiManager;
 
     public MinesweeperClient() {
         try {
-            this.observerLobbyRI = (ObserverLobbyRI) new ObserverLobbyImpl(GuiManager.getInstance(), this);
+            this.observerLobbyRI = (ObserverLobbyRI) new ObserverLobbyImpl(GuiManager.getInstance());
             this.observerGameRI = (ObserverGameRI) new ObserverGameImpl(GuiManager.getInstance(), this);
         } catch (RemoteException ex) {
             Logger.getLogger(MinesweeperClient.class.getName()).log(Level.SEVERE, null, ex);
@@ -47,11 +50,11 @@ public class MinesweeperClient {
     }
 
     public int login(String username, String password) {
-        if (this.MinesweeperClientFactoryRI == null) {
+        if (this.minesweeperFactoryRI == null) {
             return -1;
         }
         try {
-            if ((this.lobbySessionRI = this.MinesweeperClientFactoryRI.login(username, password, this.observerLobbyRI)) != null) {
+            if ((this.lobbySessionRI = this.minesweeperFactoryRI.login(username, password, this.observerLobbyRI)) != null) {
                 this.player = this.lobbySessionRI.getPlayer();
                 return 1;
             }
@@ -63,11 +66,11 @@ public class MinesweeperClient {
     }
 
     public int register(String username, String password) {
-        if (this.MinesweeperClientFactoryRI == null) {
+        if (this.minesweeperFactoryRI == null) {
             return -1;
         }
         try {
-            if (this.MinesweeperClientFactoryRI.register(username, password) == true) {
+            if (this.minesweeperFactoryRI.register(username, password) == true) {
                 return 1;
             }
         } catch (RemoteException ex) {
@@ -81,7 +84,7 @@ public class MinesweeperClient {
         MinesweeperClient minesweeperClient = new MinesweeperClient();
         minesweeperClient.guiManager = GuiManager.getInstance();
         ClientConnectionConfigs serviceClass = new ClientConnectionConfigs(args);
-        minesweeperClient.MinesweeperClientFactoryRI = (MinesweeperClientFactoryRI) serviceClass.getClientFactoryRI();
+        minesweeperClient.minesweeperFactoryRI = (MinesweeperFactoryRI) serviceClass.getClientFactoryRI();
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

@@ -11,6 +11,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 
+/**
+ *
+ * @author filipe
+ */
 public class ObserverGameImpl extends UnicastRemoteObject implements ObserverGameRI {
 
     private SubjectGameRI subjectGameRI;
@@ -19,11 +23,11 @@ public class ObserverGameImpl extends UnicastRemoteObject implements ObserverGam
     private Player currentPlayer;
     private GuiManager guiInstance;
     private MinesweeperClient minesweeperClient;
-    
-    ObserverGameImpl(GuiManager guiInstance,MinesweeperClient minesweeperClient) throws RemoteException, InterruptedException {
+
+    ObserverGameImpl(GuiManager guiInstance, MinesweeperClient minesweeperClient) throws RemoteException, InterruptedException {
         super();
-        this.guiInstance=guiInstance;
-        this.minesweeperClient=minesweeperClient;
+        this.guiInstance = guiInstance;
+        this.minesweeperClient = minesweeperClient;
         gameStates = null;
         initalState = null;
     }
@@ -56,7 +60,7 @@ public class ObserverGameImpl extends UnicastRemoteObject implements ObserverGam
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                GuiManager.getInstance().pushButton(gameStates.getRow(), gameStates.getColumn(),gameStates.getTypeOfClick());
+                GuiManager.getInstance().pushButton(gameStates.getRow(), gameStates.getColumn(), gameStates.getTypeOfClick());
             }
         });
     }
@@ -142,7 +146,6 @@ public class ObserverGameImpl extends UnicastRemoteObject implements ObserverGam
 
     @Override
     public void endGame() throws RemoteException {
-        initObserverGame();
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -150,12 +153,14 @@ public class ObserverGameImpl extends UnicastRemoteObject implements ObserverGam
                     //notify for remove the current game from table games
                     minesweeperClient.getObserverLobbyRI().updateLobbyGame();
                     //show dialog
-                    guiInstance.endGame();
+                    guiInstance.endGame(subjectGameRI.isGameWon());
+                    initObserverGame();
                 } catch (RemoteException ex) {
                     Logger.getLogger(ObserverGameImpl.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
+
     }
 
 }

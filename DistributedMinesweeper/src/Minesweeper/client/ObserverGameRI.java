@@ -5,9 +5,10 @@ import Minesweeper.server.Player;
 import Minesweeper.server.SubjectGameRI;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-
-
-
+/**
+ * 
+ * @author filipe
+ */
 public interface ObserverGameRI extends Remote {
 
     public void updateGameState() throws RemoteException;

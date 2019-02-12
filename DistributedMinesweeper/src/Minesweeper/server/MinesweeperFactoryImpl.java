@@ -10,14 +10,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-public class MinesweeperFactoryImpl extends UnicastRemoteObject implements MinesweeperAdminFactoryRI, MinesweeperClientFactoryRI {
+/**
+ * 
+ * @author filipe
+ */
+public class MinesweeperFactoryImpl extends UnicastRemoteObject implements  MinesweeperFactoryRI {
 
     private final HashMap<Player, LobbySessionRI> lobbySessionRIList;
 
     private final HashMap<Timestamp, SubjectGameRI> games;
-
-    private Thread threadRun;
 
     private static DB db;
 
@@ -30,14 +31,6 @@ public class MinesweeperFactoryImpl extends UnicastRemoteObject implements Mines
         this.games = new HashMap<>();
     }
 
-    /**
-     * Permite efectuar a autenticação na sala de jogo
-     *
-     * @param username
-     * @param password
-     * @return
-     * @throws RemoteException
-     */
     @Override
     public LobbySessionRI login(String username, String password, ObserverLobbyRI obs) throws RemoteException {
         for (Player p : this.lobbySessionRIList.keySet()) {
@@ -78,12 +71,6 @@ public class MinesweeperFactoryImpl extends UnicastRemoteObject implements Mines
         return null;
     }
 
-    /**
-     * Verifica se existe um jogador com este username
-     *
-     * @param username
-     * @return
-     */
     public boolean exists(String username) {
         ResultSet rs = null;
         try {
@@ -98,24 +85,10 @@ public class MinesweeperFactoryImpl extends UnicastRemoteObject implements Mines
         return false;
     }
 
-    /**
-     * Método auxiliar para adicionar um jogo ao ArrayList de jogos
-     *
-     * @param timestamp
-     * @param subjectGameRI
-     */
     public void addGame(SubjectGameRI subjectGameRI) throws RemoteException {
         this.games.put(subjectGameRI.getTimestamp(), subjectGameRI);
     }
 
-    /**
-     * Permite registar um jogador
-     *
-     * @param username
-     * @param password
-     * @return
-     * @throws RemoteException
-     */
     @Override
     public boolean register(String username, String password) throws RemoteException {
         if (exists(username) == false) {
@@ -126,11 +99,6 @@ public class MinesweeperFactoryImpl extends UnicastRemoteObject implements Mines
         return false;
     }
 
-    /**
-     * Permite retornar todos os jogos
-     *
-     * @return
-     */
     public ArrayList<SubjectGameRI> getAllGames() {
         ArrayList<SubjectGameRI> gamesAux = new ArrayList<>();
         for (Timestamp timestamp : this.games.keySet()) {
@@ -139,32 +107,15 @@ public class MinesweeperFactoryImpl extends UnicastRemoteObject implements Mines
         return gamesAux;
     }
 
-    /**
-     * Permite retornar um determinado jogo pela chave
-     *
-     * @param timestamp
-     * @return
-     */
     public SubjectGameRI getSubjectGame(Timestamp timestamp) {
         return this.games.get(timestamp);
     }
 
-    /**
-     * Método auxiliar que permite sair da sala de jogo
-     *
-     * @param p
-     */
     public void logout(Player p) {
         this.lobbySessionRIList.remove(p);
         notifyAllObserversToLoggedPlayers();
     }
 
-    /**
-     * Este método permite retornar um jogador pelo username
-     *
-     * @param username
-     * @return
-     */
     public Player getPlayer(String username) {
         for (Player p : this.lobbySessionRIList.keySet()) {
             if (p.getUsername().compareTo(username) == 0) {
@@ -174,12 +125,6 @@ public class MinesweeperFactoryImpl extends UnicastRemoteObject implements Mines
         return null;
     }
 
-    /**
-     * Permite terminar um jogo e remover do HashMap de Jogos.
-     *
-     * @param subjectGameRI
-     */
-    @Override
     public void endGame(Timestamp timestamp) {
         /*String query = "Insert Into Games(gameMode) VALUES('" + gameMode + "')";
         Statement statement = db.getDBInstance().executeQueryStatement(query);
@@ -209,9 +154,6 @@ public class MinesweeperFactoryImpl extends UnicastRemoteObject implements Mines
         this.lobbySessionRIList.put(p, session);
     }
 
-    /**
-     *
-     */
     public void notifyAllObserversToLoggedPlayers() {
         for (Player p : this.lobbySessionRIList.keySet()) {
             try {

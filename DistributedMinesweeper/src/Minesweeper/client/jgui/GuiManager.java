@@ -111,10 +111,18 @@ public final class GuiManager {
     }
 
     public void notifyEndGame() {
-        try {
-            this.minesweeperClient.getObserverGameRI().getSubjectGameRI().endGame();
-        } catch (RemoteException ex) {
-            Logger.getLogger(GuiManager.class.getName()).log(Level.SEVERE, null, ex);
+        if (this.gameLost == true) {
+            try {
+                this.minesweeperClient.getObserverGameRI().getSubjectGameRI().endGame(false);
+            } catch (RemoteException ex) {
+                Logger.getLogger(GuiManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            try {
+                this.minesweeperClient.getObserverGameRI().getSubjectGameRI().endGame(true);
+            } catch (RemoteException ex) {
+                Logger.getLogger(GuiManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
@@ -166,8 +174,8 @@ public final class GuiManager {
         gameStarted(false);
     }
 
-    public void endGame() {
-        JDialogEndGame n = new JDialogEndGame(this.frameLobby);
+    public void endGame(boolean isGameWon) {
+        JDialogEndGame n = new JDialogEndGame(this.frameLobby, isGameWon);
         frameGame = new JFrame();
     }
 
@@ -238,51 +246,6 @@ public final class GuiManager {
             }
             setIsJoinedAGame(false);
             setGameWon(true);
-            /*if (GameModeManager.getInstance().getGameMode() == GameMode.expertMode) {
-                Preferences pref = Preferences.userRoot();
-                int time = 999;
-                time = pref.node("/jminesweeper").getInt("experttime", 999);
-                if (time > secondsHighScore) {
-                new HighScoresDialog(MainFrame.getInstance(),
-                "High scores", true,
-                HighScoresDialogMode.EXPERT_UPDATE_MODE,
-                secondsHighScore).setVisible(true);
-                }
-                }
-                if (GameModeManager.getInstance().getGameMode() == GameMode.expertMode) {
-                Preferences pref = Preferences.userRoot();
-                int time = 999;
-                time = pref.node("/jminesweeper").getInt("experttime", 999);
-                if (time > secondsHighScore) {
-                new HighScoresDialog(MainFrame.getInstance(),
-                "High scores", true,
-                HighScoresDialogMode.EXPERT_UPDATE_MODE,
-                secondsHighScore);
-                }
-                }
-                if (GameModeManager.getInstance().getGameMode() == GameMode.mediumMode) {
-                Preferences pref = Preferences.userRoot();
-                int time = 999;
-                time = pref.node("/jminesweeper").getInt("mediumtime", 999);
-                if (time > secondsHighScore) {
-                new HighScoresDialog(MainFrame.getInstance(),
-                "High scores", true,
-                HighScoresDialogMode.MEDIUM_UPDATE_MODE,
-                secondsHighScore);
-                }
-                }
-
-                if (GameModeManager.getInstance().getGameMode().compareTo(GameMode.juniorMode) == 0) {
-                Preferences pref = Preferences.userRoot();
-                int time = 999;
-                time = pref.node("/jminesweeper").getInt("juniortime", 999);
-                if (time > secondsHighScore) {
-                new HighScoresDialog(MainFrame.getInstance(),
-                "High scores", true,
-                HighScoresDialogMode.JUNIOR_UPDATE_MODE,
-                secondsHighScore);
-                }
-                }*/
         }
     }
 
@@ -339,44 +302,6 @@ public final class GuiManager {
         return gameStarted;
     }
 
-    /**
-     * The player lost the game.
-     *
-     */
-    /*
-    public void gameLost(int row, int column) throws RemoteException {
-        gameStarted(false);
-        setGameLost(true);
-        getContentPane().removeAll();
-        getContentPane().add(mineFieldPanel.getGameLostMineFieldPanel(),
-                BorderLayout.CENTER);
-
-        for (int i = 0; i < mineFieldPanel.getBombButtons().length; i++) {
-            for (int j = 0; j < mineFieldPanel.getBombButtons()[i].length; j++) {
-                if (mineFieldPanel.getBombButtons()[i][j].getIcon() == ImageIconResourcer
-                        .getInstance().getIconMark()
-                        && mineFieldPanel.getBombButtons()[i][j].getState() != -1) {
-                    mineFieldPanel.getGameLostBombButtons()[i][j]
-                            .setIcon(ImageIconResourcer.getInstance()
-                                    .getIconBombWrong());
-                }
-                if (mineFieldPanel.getBombButtons()[i][j].getIcon() == null
-                        && mineFieldPanel.getBombButtons()[i][j].getState() == -1) {
-                    mineFieldPanel.getGameLostBombButtons()[i][j]
-                            .setIcon(ImageIconResourcer.getInstance()
-                                    .getIconBombUnfind());
-                }
-            }
-        }
-        mineFieldPanel.getGameLostBombButtons()[row][column]
-                .setIcon(ImageIconResourcer.getInstance().getIcon_1());
-
-        getContentPane().add(MineSweeperToolbar.getInstance(),
-                BorderLayout.NORTH);
-        getContentPane().add(MineSweeperStatusBar.getInstance(),
-                BorderLayout.SOUTH);
-        pack();
-    }*/
     /**
      * Returns true if the game is lost. This helps when the user wants to
      * continue clicking on buttons, but the game is already lost.

@@ -4,17 +4,18 @@ import Minesweeper.client.jgui.GuiManager;
 import Minesweeper.server.LobbySessionRI;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-
+/**
+ * 
+ * @author filipe
+ */
 public class ObserverLobbyImpl extends UnicastRemoteObject implements ObserverLobbyRI {
 
     private LobbySessionRI lobbySessionRI;
     private GuiManager guiInstance;
-    private MinesweeperClient minesweeperClientInstance;
     
-    public ObserverLobbyImpl(GuiManager guiInstance,MinesweeperClient minesweeperClient) throws RemoteException {
+    public ObserverLobbyImpl(GuiManager guiInstance) throws RemoteException {
         super();
         this.guiInstance=guiInstance;
-        this.minesweeperClientInstance=minesweeperClient;
     }
 
     @Override

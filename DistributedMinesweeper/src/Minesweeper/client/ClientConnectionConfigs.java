@@ -7,15 +7,15 @@ import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Minesweeper.server.MinesweeperFactoryRI;
-import Minesweeper.server.MinesweeperClientFactoryRI;
-
-
+/**
+ * 
+ * @author filipe
+ */
 public class ClientConnectionConfigs {
 
     private SetupContextRMI contextRMI;
-    private MinesweeperClientFactoryRI clientFactoryRI;
+    private MinesweeperFactoryRI clientFactoryRI;
    
-
     public ClientConnectionConfigs(String args[]) {
 
         try {
@@ -30,7 +30,7 @@ public class ClientConnectionConfigs {
             //Create a context for RMI setup
             contextRMI = new SetupContextRMI(this.getClass(), registryIP, registryPort, new String[]{serviceName});
         } catch (RemoteException e) {
-            Logger.getLogger(MinesweeperClientFactoryRI.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(MinesweeperFactoryRI.class.getName()).log(Level.SEVERE, null, e);
         }
         try {
             startService();
@@ -54,7 +54,7 @@ public class ClientConnectionConfigs {
                 Logger.getLogger(this.getClass().getName()).log(Level.INFO, "going to lookup service @ {0}", serviceUrl);
 
                 //============ Get proxy to calculater service ============
-                clientFactoryRI = (MinesweeperClientFactoryRI) registry.lookup(serviceUrl);
+                clientFactoryRI = (MinesweeperFactoryRI) registry.lookup(serviceUrl);
 
             } else {
                 Logger.getLogger(this.getClass().getName()).log(Level.INFO, "registry not bound (check IPs). :(");
@@ -67,7 +67,7 @@ public class ClientConnectionConfigs {
         return clientFactoryRI;
     }
 
-    public MinesweeperClientFactoryRI getClientFactoryRI(){
+    public MinesweeperFactoryRI getClientFactoryRI(){
         return this.clientFactoryRI;
     }
 

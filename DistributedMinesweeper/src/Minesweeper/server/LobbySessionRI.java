@@ -1,12 +1,14 @@
 package Minesweeper.server;
 
 import Minesweeper.client.ObserverGameRI;
-import Minesweeper.client.ObserverLobbyRI;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-
+/**
+ * 
+ * @author filipe
+ */
 public interface LobbySessionRI extends Remote {
 
     public SubjectGameRI newGame(int numberPlayers, String initialGameMode, ObserverGameRI observerGameRI) throws RemoteException;
