@@ -1,2 +1,0 @@
-# DistributedMinesweeper
-DistributedMinesweeper
