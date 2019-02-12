@@ -2,7 +2,6 @@
 @REM Description: run Pingclient
 @REM Author: Rui Moreira
 @REM Date: 20/02/2009
-@REM pwd: /Users/rui/Documents/NetBeansProjects/SD/src/edu/ufp/sd/helloworld
 @REM http://docs.oracle.com/javase/tutorial/rmi/running.html
 @REM ************************************************************************************
 
