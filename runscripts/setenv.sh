@@ -2,8 +2,6 @@
 #@REM Description: run previously all batch files
 #@REM Author: Rui S. Moreira
 #@REM Date: 20/02/2014
-#@REM pwd: /Users/rui/Documents/NetBeansProjects/SD/src/edu/ufp/sd/helloworld
-#@REM http://docs.oracle.com/javase/tutorial/rmi/running.html
 #@REM ************************************************************************************
 
 #@REM ======================== Use Shell Parameters ========================

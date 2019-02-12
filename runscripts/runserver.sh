@@ -1,10 +1,3 @@
-#@REM ************************************************************************************
-#@REM Description: run HelloWorldServer
-#@REM Author: Rui S. Moreira
-#@REM Date: 20/02/2014
-#@REM ************************************************************************************
-#@REM Script usage: runsetup <role> (where role should be: server / client)
-#@REM source ./setenv.sh
 source ./setenv.sh server
 
 cd ${ABSPATH2CLASSES}
