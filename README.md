@@ -9,7 +9,9 @@
 
 ## Demonstration
 
+![client1](screenshots/client1.gif)
 
+![client2](screenshots/client2.gif)
 
 ## Authors
 
