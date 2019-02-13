@@ -13,12 +13,12 @@
 * Python for server(SimpleHTTPServer).
 * Postgres to store players information. 
 
-Create database
+**Create database**
 ```
 createdb -DMinesweeper -Upostgres
 ```
 
-Create table
+**Create table**
 ```
 CREATE TABLE Players(id Serial PRIMARY KEY,username varchar(20),gameswon int,gameslost int,password text);
 ```
