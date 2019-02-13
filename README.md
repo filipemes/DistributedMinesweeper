@@ -45,7 +45,7 @@ CREATE TABLE Players(id Serial PRIMARY KEY,username varchar(20),gameswon int,gam
 
 * **Pedro Costa** - [pedrooct](https://github.com/pedrooct)
 
-* **Paulo Bento**
+* **Paulo Bento** - [paulobento10](https://github.com/paulobento10)
 
 
 
