@@ -29,7 +29,7 @@ export SERVANT_ACTIVATABLE_IMPL_CLASS_POSTFIX=ActivatableImpl
 #@REM Must run http server on codebase host:
 #@REM Python 2: python -m SimpleHTTPServer 8000
 #@REM Python 3: python -m http.server 8000
-export REGISTRY_HOST=172.16.1.6
+export REGISTRY_HOST=localhost
 export REGISTRY_PORT=1099
 export SERVER_RMI_HOST=${REGISTRY_HOST}
 export SERVER_RMI_PORT=1098
