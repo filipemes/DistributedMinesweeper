@@ -18,10 +18,9 @@ public class DB {
     private static final String jdbcUrl = "jdbc:postgresql://localhost:5432/Minesweeper";
     private static final String username = "postgres";
     private static final String password = "postgres";
-    public static final String createTableGames=" CREATE TABLE Games(id Serial PRIMARY KEY, gameMode varchar(20));";
-    public static final String createTablePlayerGame="CREATE TABLE PlayerGame(idPlayer int references Players(id), idGame int references Games(id),PRIMARY KEY(idPlayer,idGame));";
-     public static final String createTablePlayers="CREATE TABLE Players(id Serial PRIMARY KEY,username varchar(20),gameswon int,gameslost int,password text);";
-    public DB() {
+    public static final String createTablePlayers="CREATE TABLE Players(id Serial PRIMARY KEY,username varchar(20),gameswon int,gameslost int,password text);";
+   
+	public DB() {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
