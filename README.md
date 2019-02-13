@@ -6,6 +6,26 @@
 * We developed the distributed Minesweeper using the Remote Method Invocation(RMI).
 * We used JavaFx and Java Swing for GUIs.
 
+## Getting Started
+
+### Prerequisites
+
+* Python for server(SimpleHTTPServer).
+* Postgres to store players information. 
+
+Create database
+```
+createdb -DMinesweeper -Upostgres
+```
+
+Create table
+```
+CREATE TABLE Players(id Serial PRIMARY KEY,username varchar(20),gameswon int,gameslost int,password text);
+```
+
+### Run the Server
+
+### Run the Client
 
 ## Demonstration
 
