@@ -54,7 +54,7 @@
             <Text fill="#3a7557" layoutX="350.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="container-pane-lobby-subtitle" text="Chat" wrappingWidth="225.41667887568474" />
             <TextField id="text-field-message" fx:id="messageTextField" layoutX="348.0" layoutY="188.0" prefHeight="32.0" prefWidth="301.0" promptText="Type a message" />
             <Button id="button-send" fx:id="sendMessageButton" layoutX="646.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#onClickSendMessageButton" prefHeight="35.0" prefWidth="71.0" text="Send" />
-            <ImageView fitHeight="12.0" fitWidth="10.0" layoutX="212.0" layoutY="3.0">
+            <ImageView fitHeight="12.0" fitWidth="10.0" layoutX="178.0" layoutY="2.0">
                <image>
                   <Image url="@../../../../resources/icons/green-circle.png" />
                </image>
