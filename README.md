@@ -25,7 +25,13 @@ CREATE TABLE Players(id Serial PRIMARY KEY,username varchar(20),gameswon int,gam
 
 ### Run the Server
 
+1. Run the script runpython
+2. Run the script runregistry
+3. Run the script runserver
+
 ### Run the Client
+
+1. Run the script runclient
 
 ## Demonstration
 
