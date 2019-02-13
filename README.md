@@ -23,13 +23,13 @@ createdb -DMinesweeper -Upostgres
 CREATE TABLE Players(id Serial PRIMARY KEY,username varchar(20),gameswon int,gameslost int,password text);
 ```
 
-### Run the Server
+### To run the Server
 
 1. Run the script **runpython**
 2. Run the script **runregistry**
 3. Run the script **runserver**
 
-### Run the Client
+### To run the Client
 
 1. Run the script **runclient**
 
