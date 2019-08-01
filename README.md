@@ -12,7 +12,7 @@
 ### Prerequisites
 
 * Python for server(SimpleHTTPServer).
-* Postgres to store players information. 
+* Postgres to store players' information. 
 
 **Create database**
 ```
