@@ -48,12 +48,6 @@ public class ObserverGameImpl extends UnicastRemoteObject implements ObserverGam
         });
     }
 
-    /**
-     * Coloca o estado Inicial do jogo igual ao estado inicial do Subject(proxy)
-     * válido
-     *
-     * @throws RemoteException
-     */
     @Override
     public void updateInitGame() throws RemoteException {
         this.initalState = this.subjectGameRI.getInitialState();
@@ -71,13 +65,7 @@ public class ObserverGameImpl extends UnicastRemoteObject implements ObserverGam
         return this.subjectGameRI.checkFireMarkedFieldPressed(player, x, y);
     }
 
-    /**
-     * Retorna a vez do jogador correto para jogar, tendo em conta o servidor
-     * válido, para coordenar as jogadas
-     *
-     * @return
-     * @throws RemoteException
-     */
+
     @Override
     public Player getCurrentPlayer() throws RemoteException {
         return this.currentPlayer;
