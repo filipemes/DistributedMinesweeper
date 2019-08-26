@@ -1,5 +1,4 @@
 @REM ************************************************************************************
-@REM Description: run Pingclient
 @REM Author: Rui Moreira
 @REM Date: 20/02/2009
 @REM http://docs.oracle.com/javase/tutorial/rmi/running.html
