@@ -1,18 +1,18 @@
-#@REM ************************************************************************************
-#@REM Description: run previously all batch files
-#@REM Author: Rui S. Moreira
-#@REM Date: 20/02/2014
-#@REM ************************************************************************************
+# ************************************************************************************
+# Description: run previously all batch files
+# Author: Rui S. Moreira
+# Date: 20/02/2014
+# ************************************************************************************
 
-#@REM ======================== Use Shell Parameters ========================
-#@REM Script usage: setenv <role> (where role should be: server / client)
+# ======================== Use Shell Parameters ========================
+# Script usage: setenv <role> (where role should be: server / client)
 export SCRIPT_ROLE=$1
 
-#@REM ======================== CHANGE BELOW ACCORDING YOUR PROJECT and PC SETTINGS ========================
-#@REM ==== PC STUFF ====
+# ======================== CHANGE BELOW ACCORDING YOUR PROJECT and PC SETTINGS ========================
+# ==== PC STUFF ====
 
 
-#@REM ==== JAVA NAMING STUFF ====
+# ==== JAVA NAMING STUFF ====
 export JAVAPROJ_NAME=DistributedMinesweeper
 export JAVAPROJ=$(pwd)/..
 export PACKAGE=Minesweeper
@@ -25,10 +25,10 @@ export SETUP_CLASS_POSTFIX=Setup
 export SERVANT_IMPL_CLASS_POSTFIX=Impl
 export SERVANT_ACTIVATABLE_IMPL_CLASS_POSTFIX=ActivatableImpl
 
-#@REM ==== NETWORK STUFF ====
-#@REM Must run http server on codebase host:
-#@REM Python 2: python -m SimpleHTTPServer 8000
-#@REM Python 3: python -m http.server 8000
+# ==== NETWORK STUFF ====
+# Must run http server on codebase host:
+# Python 2: python -m SimpleHTTPServer 8000
+# Python 3: python -m http.server 8000
 export REGISTRY_HOST=localhost
 export REGISTRY_PORT=1099
 export SERVER_RMI_HOST=${REGISTRY_HOST}
@@ -40,7 +40,7 @@ export CLIENT_RMI_PORT=1097
 export CLIENT_CODEBASE_HOST=${CLIENT_RMI_HOST}
 export CLIENT_CODEBASE_PORT=8000
 
-#@REM ======================== DO NOT CHANGE AFTER THIS POINT ========================
+# ======================== DO NOT CHANGE AFTER THIS POINT ========================
 export JAVAPACKAGE=${PACKAGE}
 export JAVAPACKAGEROLE=${PACKAGE}.${SCRIPT_ROLE}
 export JAVAPACKAGEPATH=${PACKAGE}/${SCRIPT_ROLE}
