@@ -40,7 +40,7 @@ CREATE TABLE Players(id Serial PRIMARY KEY,username varchar(20),gameswon int,gam
 
 ![client2](screenshots/client2.gif)
 
-**Date:** June 2018
+**Development Date:** June 2018
 
 ## Authors
 
