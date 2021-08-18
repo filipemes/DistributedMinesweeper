@@ -4,7 +4,7 @@
 
 
 * In this project we used a standalone implementation of the Minesweeper Game developed by Sorin.
-* This game aims to be a distributed version of the minesweeper game, for those communications between players and server we used the Remote Method Invocation(RMI).
+* This game aims to be a distributed version of the minesweeper game, for communications between players and server we used the Remote Method Invocation(RMI).
 * We used JavaFx and Java Swing for GUIs.
 
 ## Getting Started
